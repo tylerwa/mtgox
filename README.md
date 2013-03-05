@@ -14,3 +14,24 @@ To illustrate what you can do with the history in the new format download the fo
 
 * [Workbook with extras](http://tylerwames.com/misc/Mtgox with extras.xlsm)
 
+It takes each CSV file and imports each line by line into an array. During this step:
+1. Each line is split up into a sub array based on the delimiter (comma).
+2. The elements of the line are parsed into the 8 or so components of each transaction.
+3. The trade ID, rate, and fee % are pulled from the description element
+4. The trade ID is compared to a running list of unique trade IDs and added if not present.
+  * Once both of those are done (the BTC and USD history csv files) there are 3 arrays: BTC history, USD history, and unique transaction IDs.
+  * Now the two history arrays are aggregated based on the unique transaction ids.
+5. I use the list of unique transaction ID, compiled while importing the CSV files, as the key for combining the line items together from each file.
+  * For instance, I would exclude the out from the BTC side but calculate the BTC effect based on the rate, and USD spent.
+
+Note: The deposits and withdrawals do not have unique transaction ID's originally so I had to improvise and used the timestamp along with "deposit @" or "withdrawn @" as their unique ID.
+
+So after this is finished, I have the list of all the orders and then I sort the list based on the date (descending was my preference).
+Next, since the list is descending and therefore flows from bottom to top, I swap the transaction line with the transaction's fee line.
+Now it finally prints it out on the spreadsheet "all".
+Note: Not all types of transactions are handled because I haven't actually used them before so some may not show up correctly if I haven't encountered them.
+
+Special handling example: Dwolla deposits now have a hard return in the middle of the description for some reason (no other transaction has this) so results in a line split up into two in the CSV file so that is handled with the following:
+
+The first line of each CSV file contains headings and establishes the number of columns.
+Each line is imported and split into an array like normal but then if the number of elements of that line is less than the total established by the first line it assumes this to be a split line. The next line is combined with the current.
