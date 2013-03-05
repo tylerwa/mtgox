@@ -1,4 +1,7 @@
 Option Explicit
+
+// Main procedure (following this shows pretty clearly the steps the macro performs)
+
 Sub Initiate()
     Application.ScreenUpdating = False
     Dim orderBook() As New Transaction
@@ -16,6 +19,9 @@ Sub Initiate()
     PrintToWorksheet orderBook, "all"
     Application.ScreenUpdating = True
 End Sub
+
+// Import the csv file (either USD or BTC) to an array of transactions and add new ID's not seen yet to the ID array
+
 Private Function Import(ByVal fullPath As String) As Transaction()
     Dim index As Integer
     Dim importData() As New Transaction
@@ -46,6 +52,9 @@ Private Function Import(ByVal fullPath As String) As Transaction()
     Set textStreamFSO = Nothing
     Import = importData()
 End Function
+
+// Create the array of order id's
+
 Private Sub CompileOrderIDs(ByRef sourceGroup() As Transaction, ByRef orderIDs As Variant)
     Dim sourceIndex As Integer
     Dim listIndex As Integer
@@ -65,6 +74,9 @@ Private Sub CompileOrderIDs(ByRef sourceGroup() As Transaction, ByRef orderIDs A
         End If
     Next
 End Sub
+
+// Pull the transaction arrays together based on the array of ID's
+
 Private Function Aggregate(ByRef historyBTC() As Transaction, ByRef historyUSD() As Transaction, _
     ByRef orderIDs As Variant) As Transaction()
     Dim orderBook() As New Transaction
@@ -95,6 +107,9 @@ Private Function Aggregate(ByRef historyBTC() As Transaction, ByRef historyUSD()
     Next
     Aggregate = orderBook()
 End Function
+
+// Regular bubblesort
+
 Public Sub Sort(ByRef orderBook() As Transaction)
     Dim finished As Boolean
     Dim index As Long
@@ -111,6 +126,9 @@ Public Sub Sort(ByRef orderBook() As Transaction)
         Next
     Loop While Not finished
 End Sub
+
+// I decided it would be more appropriate for the fee and order line items for each transaction to be swapped
+
 Public Sub SwapOrderWithFee(ByRef orderBook() As Transaction)
     Dim justSwapped As Boolean
     Dim index As Long
@@ -131,6 +149,9 @@ Public Sub SwapOrderWithFee(ByRef orderBook() As Transaction)
     Next
     orderBook(UBound(orderBook)).SetOrderIndex = UBound(orderBook) - index
 End Sub
+
+// Related to printing data to worksheet
+
 Private Sub PrintToWorksheet(ByRef orderGroup() As Transaction, ByVal nameOfSheet As String)
     Dim orderIndexA As Integer
     Dim orderIndexB As Integer
@@ -150,6 +171,7 @@ Private Sub PrintToWorksheet(ByRef orderGroup() As Transaction, ByVal nameOfShee
     Next
     Set tempSheet = Nothing
 End Sub
+
 Sub InsertHeaders(ByVal nameOfSheet As String)
     Dim tempSheet As Worksheet
     Set tempSheet = Sheets(nameOfSheet)
