@@ -8,7 +8,7 @@ Private pType As Variant
 Private pText As Variant
 Private pBalance As Variant
 Private pDetails As Variant
-'***********************************************************************
+
 Public Property Get orderIndex() As Variant
     orderIndex = pIndex
 End Property
@@ -36,7 +36,7 @@ End Property
 Public Property Get OrderBalance() As Variant
     OrderBalance = pBalance
 End Property
-'***********************************************************************
+
 Public Property Get OrderDetail(ByVal index As Integer) As Variant
     OrderDetail = pDetails(index)
 End Property
@@ -51,7 +51,7 @@ Public Property Let SetOrderIndex(ByVal newIndex As Integer)
     pDetails(0) = newIndex
     pIndex = newIndex
 End Property
-'***********************************************************************
+
 Public Property Get MaxOrderDetails() As Variant
     MaxOrderDetails = UBound(pDetails)
 End Property
@@ -61,7 +61,7 @@ End Property
 Public Property Let SetMaxOrderDetails(ByVal newSize As Variant)
     ReDim Preserve pDetails(newSize)
 End Property
-'***********************************************************************
+
 Public Property Let RawLine(ByVal text As String)
     Dim index As Integer
     Dim temp As Variant
@@ -76,6 +76,7 @@ Public Property Let RawLine(ByVal text As String)
     Next index
     ParseOrderDetails
 End Property
+
 Public Sub ParseOrderDetails()
     Dim intBeg As Integer
     Dim dolla As Integer
@@ -112,6 +113,7 @@ Public Sub ParseOrderDetails()
             pFee = 0
     End Select
 End Sub
+
 Public Function PrintOrderDetail(ByVal index As Integer) As Variant
     On Error Resume Next
     Select Case index
