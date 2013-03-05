@@ -18,11 +18,18 @@ To illustrate what you can do with the history in the new format download the fo
 ###Screenshots:
 -------
 
-Raw History USD:
+**Raw History USD:**
+
 ![Raw USD History from MtGox](http://www.tylerwames.com/misc/History USD.png)
-Raw History BTC:
+
+
+**Raw History BTC:**
+
 ![Raw BTC History from MtGox](http://www.tylerwames.com/misc/History BTC.png)
-Result (green) with example (yellow) of how you can use the combined history
+
+
+**Result (green) with example (yellow) of how you can use the combined history**
+
 ![Screenshot of result (with extras)](http://www.tylerwames.com/misc/Mtgox Screenshot.png)
 
 ### How it works ###
