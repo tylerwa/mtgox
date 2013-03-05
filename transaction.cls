@@ -12,27 +12,35 @@ Private pDetails As Variant
 Public Property Get orderIndex() As Variant
     orderIndex = pIndex
 End Property
+
 Public Property Get OrderDate() As Variant
     OrderDate = pDate
 End Property
+
 Public Property Get OrderType() As Variant
     OrderType = pType
 End Property
+
 Public Property Get OrderText() As Variant
     OrderText = pText
 End Property
+
 Public Property Get OrderValue() As Variant
     OrderValue = pValue
 End Property
+
 Public Property Get OrderID() As Variant
     OrderID = pID
 End Property
+
 Public Property Get OrderRate() As Variant
     OrderRate = pRate
 End Property
+
 Public Property Get OrderFee() As Variant
     OrderFee = pFee
 End Property
+
 Public Property Get OrderBalance() As Variant
     OrderBalance = pBalance
 End Property
@@ -40,13 +48,16 @@ End Property
 Public Property Get OrderDetail(ByVal index As Integer) As Variant
     OrderDetail = pDetails(index)
 End Property
+
 Public Property Get OrderDetails() As Variant
     OrderDetails = pDetails
 End Property
+
 Public Property Let SetOrderDetails(ByRef passedDetails As Variant)
     pDetails = passedDetails
     ParseOrderDetails
 End Property
+
 Public Property Let SetOrderIndex(ByVal newIndex As Integer)
     pDetails(0) = newIndex
     pIndex = newIndex
@@ -55,9 +66,11 @@ End Property
 Public Property Get MaxOrderDetails() As Variant
     MaxOrderDetails = UBound(pDetails)
 End Property
+
 Public Property Get MinOrderDetails() As Variant
     MinOrderDetails = LBound(pDetails)
 End Property
+
 Public Property Let SetMaxOrderDetails(ByVal newSize As Variant)
     ReDim Preserve pDetails(newSize)
 End Property
