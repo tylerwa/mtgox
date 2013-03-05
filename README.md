@@ -3,11 +3,11 @@ MTGOX History for Excel
 
 Excel VBA macro that processes and intelligently combines the USD history file and BTC history text files into a single history.
 
-###Raw History USD:###
+###Raw History USD: ###
 ![Raw USD History from MtGox](http://www.tylerwames.com/misc/History USD.png)
-###Raw History BTC:###
+###Raw History BTC: ###
 ![Raw BTC History from MtGox](http://www.tylerwames.com/misc/History BTC.png)
-###Result### (with an example of what you can do on the right in light yellow)
+###Result (green) with example (yellow) of how you can use the combined history
 ![Screenshot of result (with extras)](http://www.tylerwames.com/misc/Mtgox Screenshot.png)
 
 To see how it works download the two history files and workbook below.
