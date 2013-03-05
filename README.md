@@ -1,14 +1,8 @@
 MTGOX History for Excel 
 =====
+-----
 
 Excel VBA macro that processes and intelligently combines the USD history file and BTC history text files into a single history.
-
-###Raw History USD: ###
-![Raw USD History from MtGox](http://www.tylerwames.com/misc/History USD.png)
-###Raw History BTC: ###
-![Raw BTC History from MtGox](http://www.tylerwames.com/misc/History BTC.png)
-###Result (green) with example (yellow) of how you can use the combined history
-![Screenshot of result (with extras)](http://www.tylerwames.com/misc/Mtgox Screenshot.png)
 
 To see how it works download the two history files and workbook below.
 * [History (BTC) CSV file](http://tylerwames.com/misc/history_BTC.csv)
@@ -21,7 +15,18 @@ To illustrate what you can do with the history in the new format download the fo
 
 * [Workbook with extras](http://tylerwames.com/misc/Mtgox with extras.xlsm)
 
+###Screenshots:
+-------
+
+Raw History USD:
+![Raw USD History from MtGox](http://www.tylerwames.com/misc/History USD.png)
+Raw History BTC:
+![Raw BTC History from MtGox](http://www.tylerwames.com/misc/History BTC.png)
+Result (green) with example (yellow) of how you can use the combined history
+![Screenshot of result (with extras)](http://www.tylerwames.com/misc/Mtgox Screenshot.png)
+
 ### How it works ###
+-----
 
 1. It takes each CSV file and imports each line by line into an array. During this step:
 * Each line is split up into a sub array based on the delimiter (comma).
