@@ -36,8 +36,8 @@ To illustrate what you can do with the history in the new format download the fo
 -----
 
 1. It takes each CSV file and imports each line by line into an array. During this step:
-* Each line is split up into a sub array based on the delimiter (comma).
-* The elements of the line are parsed into the 8 or so components of each transaction.
+*Each line is split up into a sub array based on the delimiter (comma).
+*The elements of the line are parsed into the 8 or so components of each transaction.
 * The trade ID, rate, and fee % are pulled from the description element
 * The trade ID is compared to a running list of unique trade IDs and added if not present.
 2. Once both of those are done (the BTC and USD history csv files) there are 3 arrays: BTC history, USD history, and unique transaction IDs.
